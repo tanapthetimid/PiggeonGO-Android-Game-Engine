@@ -82,7 +82,6 @@ public abstract class GameObject extends Node implements Serializable, Updatable
      */
     public void update(Stage stage)
     {
-
         onUpdate(stage);
 
         Object[] goUpArray = goUpdatables.toArray();
@@ -94,7 +93,6 @@ public abstract class GameObject extends Node implements Serializable, Updatable
         {
             animator.update(stage);
         }
-
     }
 
     //onUpdate callback where most game related work is done
