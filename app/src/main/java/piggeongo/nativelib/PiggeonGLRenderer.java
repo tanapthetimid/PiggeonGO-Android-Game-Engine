@@ -44,15 +44,20 @@ public class PiggeonGLRenderer implements GLSurfaceView.Renderer {
     private int mSamplerLoc;
     private int activeTexture;
 
+    private Stage newStage;
+
     private FloatBuffer currentVertices = null;
 
     public PiggeonGLRenderer(Stage stage){
         this.stage = stage;
     }
 
+    public void changeStage(Stage newStage){
+        this.newStage = newStage;
+    }
+
     @Override
     public void onSurfaceCreated(GL10 gl10, EGLConfig eglConfig) {
-
         shaderProgramTexture = new ShaderProgram();
         shaderProgramTexture.attachVertexShader(vertex_shader.defaultGLES20);
         shaderProgramTexture.attachFragmentShader(fragment_shader.defaultGLES20);
@@ -75,6 +80,12 @@ public class PiggeonGLRenderer implements GLSurfaceView.Renderer {
     public void onDrawFrame(GL10 gl10) {
         processUpdates();
         render();
+
+        if(newStage != null){
+            stage = newStage;
+            stage.loadStage();
+            newStage = null;
+        }
     }
 
     private void processUpdates()

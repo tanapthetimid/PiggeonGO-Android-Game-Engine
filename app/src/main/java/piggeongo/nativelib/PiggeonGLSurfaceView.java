@@ -91,4 +91,8 @@ public class PiggeonGLSurfaceView extends GLSurfaceView {
         return true;
     }
 
+    public PiggeonGLRenderer getRenderer(){
+        return glRenderer;
+    }
+
 }
