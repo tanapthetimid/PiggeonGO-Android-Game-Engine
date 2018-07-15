@@ -58,6 +58,9 @@ public class Animator implements Updatable, Serializable
     //whether to loop the sprite or not
     private boolean looping = false;
 
+    //to query whether the animation is complete
+    private boolean completed = false;
+
     public Animator(String id)
     {
         this.id = id;
@@ -93,6 +96,10 @@ public class Animator implements Updatable, Serializable
                 targetGameObject.onAnimationComplete(this.id);
             }
         }
+
+        if(currentSpriteIndex >= spriteTimeTable.size() && !looping){
+            completed = true;
+        }
     }
 
     public void addSpriteToMap(ImageInfo imageInfo, int durationInFrames)
@@ -125,5 +132,13 @@ public class Animator implements Updatable, Serializable
 
     public void setLooping(boolean loop) {
         this.looping = loop;
+    }
+
+    public boolean isCompleted(){
+        return completed;
+    }
+
+    public int getCurrentSpriteIndex(){
+        return currentSpriteIndex;
     }
 }
