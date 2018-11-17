@@ -1,3 +1,6 @@
+ICS Game Design and Programming club made a game that demos this engine: (download here)
+https://github.com/TanapTheTimid/PiggeonGO-Android-Game-Engine/raw/master/SpaceShooterGame.apk
+
 # PiggeonGO Android Game Engine
 Simple android game engine based on OpenGL backend.
 
